@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dceeff">
+  <meta name="description" content="Paper & Co — layanan print, fotokopi, dan cetak foto dengan harga ramah kantong.">
+  <title>Paper & Co — Print, Copy & Photo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-50: #f4f9ff;
+      --blue-100: #e7f2ff;
+      --blue-200: #d1e7ff;
+      --blue-300: #b6d9fb;
+      --blue-500: #6ca9e8;
+      --blue-700: #315f91;
+      --ink: #233b54;
+      --muted: #6f849a;
+      --white: #ffffff;
+      --line: #e1edf8;
+      --shadow: 0 18px 50px rgba(66, 116, 164, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background:
+        radial-gradient(circle at 8% 4%, rgba(209,231,255,.75), transparent 27rem),
+        radial-gradient(circle at 95% 35%, rgba(230,240,255,.85), transparent 24rem),
+        var(--blue-50);
+      font-family: "DM Sans", sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    header { padding: 22px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -.6px; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; color: var(--blue-700); background: var(--blue-200); font-size: 1.25rem; }
+    .nav-links { display: flex; align-items: center; gap: 27px; color: var(--muted); font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--blue-700); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 19px; border-radius: 14px; background: var(--blue-700); color: white; font-weight: 700; font-size: .93rem; border: 0; cursor: pointer; box-shadow: 0 8px 20px rgba(49,95,145,.18); transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: #254e7b; }
+    .button.secondary { background: white; color: var(--blue-700); border: 1px solid var(--line); box-shadow: none; }
+    .hero { padding: 55px 0 66px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 45px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #d7e9fb; background: rgba(255,255,255,.75); padding: 7px 12px; border-radius: 999px; color: var(--blue-700); font-size: .78rem; font-weight: 700; letter-spacing: .3px; }
+    h1, h2, h3 { font-family: Manrope, sans-serif; line-height: 1.15; letter-spacing: -1.2px; }
+    h1 { font-size: clamp(2.7rem, 6vw, 4.6rem); margin: 21px 0 18px; max-width: 650px; }
+    h1 span { color: var(--blue-500); }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 480px; margin: 0 0 27px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-art { min-height: 330px; position: relative; display: grid; place-items: center; }
+    .paper-stack { width: min(350px, 88%); height: 300px; border-radius: 28px; background: linear-gradient(145deg, #d6eaff, #edf6ff); position: relative; transform: rotate(3deg); }
+    .sheet { position: absolute; background: white; border: 1px solid #e4eef8; border-radius: 16px; box-shadow: var(--shadow); }
+    .sheet.one { width: 205px; height: 250px; top: 20px; left: 40px; transform: rotate(-10deg); padding: 25px 20px; }
+    .sheet.two { width: 205px; height: 250px; top: 31px; right: 34px; transform: rotate(8deg); padding: 25px 20px; }
+    .sheet-label { font-size: .68rem; font-weight: 800; color: var(--blue-500); letter-spacing: 1.5px; }
+    .fake-title { height: 9px; width: 80%; border-radius: 9px; background: #c5e0fb; margin: 17px 0 13px; }
+    .fake-line { height: 5px; width: 100%; border-radius: 9px; background: #edf3f8; margin: 8px 0; }
+    .fake-line.short { width: 65%; }
+    .photo-sample { position: absolute; width: 105px; height: 130px; border: 7px solid white; border-radius: 8px; background: linear-gradient(145deg, #d7eaff, #f5dfe8); right: 12px; bottom: 5px; transform: rotate(9deg); box-shadow: var(--shadow); display: grid; place-items: center; font-size: 2rem; }
+    section { padding: 38px 0 54px; }
+    .section-head { text-align: center; margin: 0 auto 28px; max-width: 600px; }
+    .section-head .kicker { color: var(--blue-500); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: .72rem; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 8px 0 10px; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .price-card { background: rgba(255,255,255,.88); border: 1px solid var(--line); border-radius: 20px; padding: 22px; box-shadow: 0 8px 25px rgba(66,116,164,.045); transition: transform .2s, box-shadow .2s; }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 14px; background: var(--blue-100); font-size: 1.2rem; margin-bottom: 18px; }
+    .price-card h3 { font-size: 1rem; letter-spacing: -.3px; margin: 0 0 6px; }
+    .price { color: var(--blue-700); font-family: Manrope, sans-serif; font-weight: 800; font-size: 1.55rem; margin: 10px 0 2px; }
+    .detail { color: var(--muted); font-size: .82rem; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .photo-card { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 19px 21px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+    .photo-card h3 { margin: 0 0 4px; font-size: 1rem; letter-spacing: -.3px; }
+    .photo-card p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .photo-price { white-space: nowrap; font-family: Manrope, sans-serif; font-weight: 800; color: var(--blue-700); }
+    .order-panel { background: linear-gradient(120deg, #dceeff, #eef7ff); border: 1px solid #d5e8fa; border-radius: 28px; padding: 35px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .order-panel h2 { margin: 0 0 10px; font-size: clamp(1.5rem, 3vw, 2.15rem); }
+    .order-panel p { margin: 0; color: var(--muted); max-width: 550px; }
+    .order-panel .button { flex-shrink: 0; }
+    footer { padding: 25px 0 35px; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; border-top: 1px solid var(--line); padding-top: 22px; }
+    .footer-brand { font-family: Manrope, sans-serif; color: var(--ink); font-weight: 800; }
+    .tiny-heart { color: #8cb9e8; }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; padding-top: 35px; gap: 15px; }
+      .hero-art { min-height: 300px; }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 15px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1100px); }
+      header { padding: 15px 0; }
+      .nav-links { display: none; }
+      .brand { font-size: 1.1rem; }
+      .nav .button { padding: 10px 12px; font-size: .82rem; }
+      .hero { padding: 32px 0 42px; }
+      h1 { font-size: 2.8rem; }
+      .hero p { font-size: .96rem; }
+      .hero-art { min-height: 270px; }
+      .paper-stack { height: 245px; }
+      .sheet.one, .sheet.two { width: 165px; height: 205px; padding: 18px 15px; }
+      .sheet.one { left: 20px; }
+      .sheet.two { right: 20px; }
+      .photo-sample { width: 82px; height: 100px; right: 0; bottom: -2px; }
+      section { padding: 28px 0 38px; }
+      .price-grid { gap: 10px; }
+      .price-card { padding: 16px; border-radius: 16px; }
+      .card-icon { margin-bottom: 13px; }
+      .price { font-size: 1.3rem; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .order-panel { padding: 25px 21px; align-items: flex-start; flex-direction: column; border-radius: 22px; }
+      .order-panel .button { width: 100%; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Paper & Co beranda">
+        <span class="brand-mark">P.</span><span>paper <span style="color:#6ca9e8">&</span> co.</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#harga">Daftar Harga</a>
+        <a href="#foto">Cetak Foto</a>
+        <a href="#pesan">Cara Pesan</a>
+      </nav>
+      <a class="button" href="https://wa.me/6285382772078?text=Halo%20Paper%20%26%20Co%2C%20saya%20mau%20pesan." target="_blank" rel="noopener">Pesan sekarang ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow"><span>✦</span> PRINT • COPY • PHOTO</div>
+        <h1>Ide kamu,<br><span>kami cetakkan.</span></h1>
+        <p>Print tugas, fotokopi dokumen, sampai cetak foto kesayangan. Praktis, harga ramah kantong, dan tinggal chat admin.</p>
+        <div class="hero-actions">
+          <a class="button" href="#harga">Lihat daftar harga ↓</a>
+          <a class="button secondary" href="https://wa.me/6285382772078?text=Halo%20Paper%20%26%20Co%2C%20saya%20mau%20tanya%20layanan." target="_blank" rel="noopener">Chat admin</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi kertas dan hasil cetak">
+        <div class="paper-stack">
+          <div class="sheet one">
+            <div class="sheet-label">PAPER & CO.</div><div class="fake-title"></div>
+            <div class="fake-line"></div><div class="fake-line"></div><div class="fake-line short"></div>
+            <div class="fake-title" style="width:52%; margin-top:24px"></div>
+            <div class="fake-line"></div><div class="fake-line short"></div>
+          </div>
+          <div class="sheet two">
+            <div class="sheet-label">YOUR PRINTS</div><div class="fake-title" style="width:65%"></div>
+            <div class="fake-line"></div><div class="fake-line short"></div>
+            <div style="height:65px; margin-top:20px; border-radius:9px; background:linear-gradient(135deg,#cce4fb,#e9dff4)"></div>
+            <div class="fake-line" style="margin-top:14px"></div><div class="fake-line short"></div>
+          </div>
+          <div class="photo-sample">✿</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="harga">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Simple & affordable</div>
+          <h2>Daftar harga</h2>
+          <p>Harga jelas, jadi kamu bisa sesuaikan dengan kebutuhan.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card">
+            <div class="card-icon">🖨️</div><h3>Print Warna</h3>
+            <div class="price">Rp2.000</div><div class="detail">per lembar</div>
+          </article>
+          <article class="price-card">
+            <div class="card-icon">📄</div><h3>Print Hitam Putih</h3>
+            <div class="price">Rp1.000</div><div class="detail">per lembar</div>
+          </article>
+          <article class="price-card">
+            <div class="card-icon">🎨</div><h3>Fotokopi Warna</h3>
+            <div class="price">Rp500</div><div class="detail">per lembar</div>
+          </article>
+          <article class="price-card">
+            <div class="card-icon">🗎</div><h3>Fotokopi Hitam Putih</h3>
+            <div class="price">Rp200</div><div class="detail">per lembar</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="foto">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Keep your moments</div>
+          <h2>Harga cetak foto</h2>
+          <p>Ukuran dan jumlah lembar sesuai paket berikut.</p>
+        </div>
+        <div class="photo-grid">
+          <article class="photo-card"><div><h3>Foto 2 × 3</h3><p>5 lembar</p></div><div class="photo-price">Rp5.000</div></article>
+          <article class="photo-card"><div><h3>Foto 3 × 4</h3><p>4 lembar</p></div><div class="photo-price">Rp5.000</div></article>
+          <article class="photo-card"><div><h3>Foto 4 × 6</h3><p>3 lembar</p></div><div class="photo-price">Rp5.000</div></article>
+          <article class="photo-card"><div><h3>Foto 2R</h3><p>2 lembar</p></div><div class="photo-price">Rp5.000</div></article>
+          <article class="photo-card"><div><h3>Foto 3R</h3><p>1 lembar</p></div><div class="photo-price">Rp5.000</div></article>
+          <article class="photo-card"><div><h3>Foto 5R</h3><p>1 lembar</p></div><div class="photo-price">Rp7.000</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesan">
+      <div class="container">
+        <div class="order-panel">
+          <div>
+            <h2>Mau print atau cetak foto?</h2>
+            <p>Langsung hubungi admin Paper & Co lewat WhatsApp. Kirim file atau tanyakan kebutuhanmu melalui chat.</p>
+          </div>
+          <a class="button" href="https://wa.me/6285382772078?text=Halo%20Paper%20%26%20Co%2C%20saya%20mau%20pesan%3A%0AJenis%20layanan%3A%20%0AJumlah%3A%20" target="_blank" rel="noopener">Pesan via WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><div class="footer-brand">paper & co.</div><div>Print • Copy • Photo</div></div>
+      <div>Made with <span class="tiny-heart">♡</span> for your everyday needs.</div>
+    </div>
+  </footer>
+</body>
+</html>
